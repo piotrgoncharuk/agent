@@ -52,7 +52,7 @@ def score_and_route(session: Session, job: Job, catalog: Catalog, settings: Sett
         qualified = result.total >= settings.score_notify_threshold and not result.red_flags
         crm.move(session, job, Stage.QUALIFIED if qualified else Stage.SKIPPED, note=f"score {result.total}")
         if qualified:
-            notify.send_telegram(notify.job_card(job))
+            notify.send_job(job)
     return job
 
 

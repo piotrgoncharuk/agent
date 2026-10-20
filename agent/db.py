@@ -1,6 +1,7 @@
 """Схема БД (SQLite → PostgreSQL без изменений кода, только DATABASE_URL)."""
 from datetime import datetime, timezone
 from enum import StrEnum
+from pathlib import Path
 
 from sqlalchemy import JSON, DateTime, Enum, Float, ForeignKey, Integer, String, Text, UniqueConstraint, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship, sessionmaker
@@ -95,6 +96,8 @@ class StageEvent(Base):
 
 def make_session_factory(url: str | None = None) -> sessionmaker:
     url = url or get_settings().database_url
+    if url.startswith("sqlite:///"):
+        Path(url.removeprefix("sqlite:///")).parent.mkdir(parents=True, exist_ok=True)
     engine = create_engine(url, connect_args={"check_same_thread": False} if url.startswith("sqlite") else {})
     Base.metadata.create_all(engine)
     return sessionmaker(engine, expire_on_commit=False)

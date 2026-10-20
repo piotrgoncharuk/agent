@@ -1,0 +1,20 @@
+# systemd-сервис: агент работает 24/7 и перезапускается после сбоев/перезагрузки.
+# Замените USER на имя пользователя на сервере, затем:
+#   sudo cp deploy/freelance-agent.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now freelance-agent
+#   journalctl -u freelance-agent -f      # логи
+[Unit]
+Description=Freelance Agent (Telegram bot + scheduler)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=USER
+WorkingDirectory=/home/USER/agent
+ExecStart=/home/USER/agent/.venv/bin/fa run
+Restart=always
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

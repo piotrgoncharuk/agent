@@ -7,7 +7,7 @@ ALLOWED = {
     Stage.NEW: {Stage.QUALIFIED, Stage.SKIPPED},
     Stage.QUALIFIED: {Stage.DRAFTED, Stage.SKIPPED},
     Stage.DRAFTED: {Stage.SENT, Stage.SKIPPED, Stage.DRAFTED},
-    Stage.SENT: {Stage.REPLIED, Stage.LOST},
+    Stage.SENT: {Stage.REPLIED, Stage.WON, Stage.LOST},  # клиент может нанять сразу
     Stage.REPLIED: {Stage.INTERVIEW, Stage.WON, Stage.LOST},
     Stage.INTERVIEW: {Stage.WON, Stage.LOST},
     Stage.WON: {Stage.DELIVERED, Stage.LOST},

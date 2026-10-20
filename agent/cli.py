@@ -1,4 +1,4 @@
-"""CLI: fa collect | fa report | fa profile upwork en | fa serve"""
+"""CLI: fa run | fa collect | fa report | fa profile upwork en | fa serve"""
 import argparse
 import json
 import logging
@@ -21,12 +21,17 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("platform")
     p.add_argument("language", choices=["en", "pl", "ru", "ua"])
     sub.add_parser("serve", help="запустить API на :8000")
+    sub.add_parser("run", help="агент 24/7: Telegram-бот + сбор по расписанию + вечерний отчёт")
     args = ap.parse_args(argv)
 
     settings, catalog = get_settings(), get_catalog()
     if args.cmd == "serve":
         import uvicorn
         uvicorn.run("agent.api:app", host="127.0.0.1", port=8000)
+        return
+    if args.cmd == "run":
+        from .scheduler import run_forever
+        run_forever(make_session_factory(), catalog, settings)
         return
     if args.cmd == "profile":
         from .profiles import generate_profile

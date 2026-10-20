@@ -19,6 +19,12 @@ class Settings(BaseSettings):
     freelancehunt_token: str = ""
     freelancer_token: str = ""
 
+    # Расписание для `fa run`
+    timezone: str = "Europe/Warsaw"
+    collect_interval_min: int = 30
+    report_time: str = "20:00"          # ежедневный отчёт, HH:MM по timezone; пусто — выключено
+    use_llm_scoring: bool = False       # уточнять скоринг через Claude при автосборе
+
     config_dir: Path = ROOT / "config"
     profiles_dir: Path = ROOT / "profiles"
 

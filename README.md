@@ -4,12 +4,15 @@
 оценивает их, считает цену и готовит черновик отклика на языке заказа (en / pl / ru / ua).
 **Отправляет отклик всегда владелец.**
 
+👉 **Пошаговая инструкция: [USAGE.md](USAGE.md)**
+
 ## Быстрый старт
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -e ".[dev]"
 cp .env.example .env          # ANTHROPIC_API_KEY, токены Telegram/Freelancehunt/Freelancer
 .venv/bin/pytest -q           # тесты (без сети и API)
-.venv/bin/fa serve            # API + документация: http://127.0.0.1:8000/docs
+.venv/bin/fa run              # агент 24/7: Telegram-бот + сбор каждые 30 мин + отчёт в 20:00
+.venv/bin/fa serve            # (опционально) HTTP API + документация: http://127.0.0.1:8000/docs
 ```
 
 ## Модули ТЗ
@@ -23,12 +26,10 @@ cp .env.example .env          # ANTHROPIC_API_KEY, токены Telegram/Freelan
 | М6 CRM | `agent/crm.py`, `agent/db.py` | воронка new → qualified → drafted → sent → replied → won → delivered → reviewed |
 | М7 Отчёты | `agent/reports.py` | конверсия, выручка vs $10K к 11.12, отзывы, разбивка по платформам; `fa report --telegram` |
 
-## Ежедневная работа
-1. `fa collect` (или cron каждые 30 мин) → квалифицированные заказы приходят в Telegram.
-2. Заказ из Upwork/LinkedIn-алерта: `POST /jobs/import {"platform": "upwork", "text": "...", "url": "..."}`.
-3. `POST /jobs/{id}/draft` → черновик + цена + вопросы клиенту → правите и отправляете сами.
-4. `POST /jobs/{id}/stage {"stage": "sent"}` … `{"stage": "won", "contract_value": 450}`.
-5. `fa report --telegram` — сводка.
+## Telegram и расписание
+`agent/bot.py` — кнопки воронки под каждой карточкой и команды `/jobs /add /won /collect /report`;
+бот отвечает только на `TELEGRAM_CHAT_ID`. `agent/scheduler.py` — сбор каждые `COLLECT_INTERVAL_MIN`
+минут и ежедневный отчёт в `REPORT_TIME`. Для сервера: `deploy/freelance-agent.service` (systemd).
 
 ## Профили
 ```bash
@@ -45,5 +46,5 @@ fa profile useme pl
 
 ## Пока не сделано
 - Gmail API (автоматическое чтение писем-алертов) — сейчас текст вставляется через `/jobs/import`.
-- Интеграция с ClickUp, кнопки в Telegram-боте (одобрить/пропустить), планировщик.
+- Интеграция с ClickUp.
 - Переход на PostgreSQL — достаточно сменить `DATABASE_URL`.
