@@ -1,0 +1,19 @@
+# Мастер-профиль (М1). Источник правды для всех текстов профилей и откликов.
+# Поля в [квадратных скобках] — ЗАПОЛНИТЬ. Генератор не придумывает факты:
+# пока поле не заполнено, в тексте остаётся плейсхолдер.
+name: "[Имя Фамилия]"
+location: "[Город, страна / часовой пояс]"
+languages: [en, pl, ru, ua]
+degree: "[Степень, специальность, университет, год]"
+current_role: "[Должность / аффилиация]"
+years_experience: "[N]"
+domains: all                 # все предметные области
+tools:
+  statistics: [R, Python, SPSS, Stata, SAS, jamovi, JASP, GraphPad Prism, Mplus, Excel]
+  meta_analysis: [RevMan, "R (meta, metafor)", Comprehensive Meta-Analysis]
+  writing_formatting: [LaTeX, Overleaf, Microsoft Word, Zotero, EndNote, Mendeley]
+  visualization: [ggplot2, matplotlib, seaborn, Plotly, GraphPad Prism]
+publications: []             # - {title: "", journal: "", year: , doi: ""}
+case_studies: []             # - {service: stat_analysis, task: "", method: "", result: ""}
+rates: {}                    # пусто → берутся ориентиры из config/services.yaml
+availability: "[часов в неделю]"

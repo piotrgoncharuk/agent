@@ -1,0 +1,72 @@
+# Платформы (М1/М2). Лимиты символов — ориентиры, сверяйте с формой платформы
+# при регистрации: они меняются без предупреждения.
+# collector: способ сбора заказов
+#   api        — официальный API (нужен токен в .env)
+#   rss        — RSS-лента (feeds: список URL)
+#   email      — алерты на почту → вставка текста через /jobs/import
+#   manual     — ручной ввод/вставка
+platforms:
+  upwork:
+    priority: P1
+    languages: [en]
+    collector: email          # публичные RSS Upwork закрыты; используем e-mail-алерты сохранённых поисков
+    fee_pct: 10
+    profile_limits: {title: 70, overview: 5000}
+    proposal_limits: {cover_letter: 5000}
+  kolabtree:
+    priority: P1
+    languages: [en]
+    collector: email
+    fee_pct: 0                # комиссия берётся с клиента; уточните условия при регистрации
+    profile_limits: {headline: 120, bio: 3000}
+    proposal_limits: {cover_letter: 3000}
+  fiverr:
+    priority: P1
+    languages: [en]
+    collector: manual         # на Fiverr клиент приходит сам (гиги + Buyer Requests)
+    fee_pct: 20
+    profile_limits: {gig_title: 80, gig_description: 1200, seller_description: 600}
+    proposal_limits: {offer: 1500}
+  useme:
+    priority: P1
+    languages: [pl, en]
+    collector: rss
+    feeds: []                 # добавьте URL RSS-ленты нужных категорий Useme
+    fee_pct: 10
+    profile_limits: {headline: 100, description: 3000}
+    proposal_limits: {offer: 3000}
+  linkedin:
+    priority: P1
+    languages: [en, pl]
+    collector: manual         # API для поиска заказов нет; посты/вакансии — вручную или e-mail-алерты
+    fee_pct: 0
+    profile_limits: {headline: 220, about: 2600}
+    proposal_limits: {message: 1900}
+  editing_agencies:
+    priority: P1
+    languages: [en]
+    collector: manual         # заявки в агентства (Editage, Enago, Cactus и т.п.) — одноразовые анкеты
+    fee_pct: 0
+    profile_limits: {bio: 2000}
+    proposal_limits: {application: 3000}
+  freelancer:
+    priority: P2
+    languages: [en]
+    collector: api
+    fee_pct: 10
+    profile_limits: {headline: 50, summary: 3000}
+    proposal_limits: {bid: 1500}
+  freelancehunt:
+    priority: P2
+    languages: [ua, ru]
+    collector: api
+    fee_pct: 0
+    profile_limits: {summary: 3000}
+    proposal_limits: {bid: 2000}
+  peopleperhour:
+    priority: P3
+    languages: [en]
+    collector: email
+    fee_pct: 20
+    profile_limits: {headline: 100, about: 2500}
+    proposal_limits: {proposal: 2000}

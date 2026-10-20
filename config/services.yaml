@@ -1,0 +1,143 @@
+# Каталог услуг (М1/М3/М5). Ключевые слова — на en/pl/ru/ua, в нижнем регистре,
+# сравниваются по вхождению подстроки (основы слов дают совпадение по словоформам).
+# price_usd — ОРИЕНТИРЫ-ЗАГЛУШКИ, замените на свои ставки.
+# unit: project | hour | page | 1000_words
+
+services:
+  - id: stat_analysis
+    name:
+      en: Statistical data analysis
+      pl: Analiza statystyczna danych
+      ru: Статистический анализ данных
+      ua: Статистичний аналіз даних
+    keywords:
+      en: [statistic, regression, anova, spss, stata, " r ", rstudio, sas, "mixed model", survival, "logistic", "t-test", "chi-square", "p-value", "data analysis", biostatist, "sem ", "structural equation", "factor analysis", "cox ", glm, bayesian, jamovi, jasp, graphpad, "power analysis", psychometric]
+      pl: [statystyk, regresj, analiza danych, "test t", istotnoś, spss, korelacj, "analiza czynnikow"]
+      ru: [статистик, регресс, дисперсионн, "анализ данных", spss, корреляц, "факторный анализ", достоверност, биостатист]
+      ua: [статистик, регрес, дисперсійн, "аналіз даних", кореляц, "факторний аналіз", достовірн]
+    price_usd: {min: 150, typical: 400, max: 2000, unit: project}
+
+  - id: study_design
+    name:
+      en: Study design & sample size
+      pl: Projektowanie badań i wielkość próby
+      ru: Дизайн исследования и расчёт выборки
+      ua: Дизайн дослідження та розрахунок вибірки
+    keywords:
+      en: ["study design", "sample size", "power calculation", protocol, "research design", "randomiz", "clinical trial", "sap ", "statistical analysis plan", "survey design", questionnaire]
+      pl: ["projekt badania", "wielkość próby", "liczebność próby", protokół, ankiet, kwestionariusz]
+      ru: ["дизайн исследования", "размер выборки", "объём выборки", протокол, рандомиз, анкет, опросник]
+      ua: ["дизайн дослідження", "розмір вибірки", "обсяг вибірки", протокол, рандоміз, анкет, опитувальник]
+    price_usd: {min: 100, typical: 300, max: 1500, unit: project}
+
+  - id: meta_analysis
+    name:
+      en: Systematic review & meta-analysis
+      pl: Przegląd systematyczny i metaanaliza
+      ru: Систематический обзор и метаанализ
+      ua: Систематичний огляд і метааналіз
+    keywords:
+      en: [meta-analys, "meta analys", metaanalys, "systematic review", prisma, "forest plot", "funnel plot", "risk of bias", grade, "network meta", revman, "scoping review"]
+      pl: [metaanaliz, "przegląd systematyczny", prisma]
+      ru: [метаанализ, мета-анализ, "систематический обзор", prisma]
+      ua: [метааналіз, мета-аналіз, "систематичний огляд", prisma]
+    price_usd: {min: 400, typical: 1200, max: 5000, unit: project}
+
+  - id: methods_results
+    name:
+      en: Methods & Results writing
+      pl: Pisanie sekcji Metody i Wyniki
+      ru: Написание разделов «Методы» и «Результаты»
+      ua: Написання розділів «Методи» та «Результати»
+    keywords:
+      en: ["methods section", "results section", "statistical methods", "write results", "interpret results", "thesis chapter", dissertation, "results chapter", "methodology chapter"]
+      pl: ["rozdział metodologiczny", "opis wyników", "praca magisterska", "praca doktorska", "praca dyplomowa", "część empiryczna"]
+      ru: ["раздел методы", "описание результатов", диссертац, "магистерск", "главы", "методолог"]
+      ua: ["розділ методи", "опис результатів", дисертац, магістерськ, методолог]
+    price_usd: {min: 150, typical: 450, max: 2000, unit: project}
+
+  - id: dataviz
+    name:
+      en: Scientific data visualization
+      pl: Wizualizacja danych naukowych
+      ru: Научная визуализация данных
+      ua: Наукова візуалізація даних
+    keywords:
+      en: [visualiz, ggplot, matplotlib, "figure", "chart", "graph", infographic, "kaplan-meier", heatmap, "publication-ready", "plot "]
+      pl: [wizualizacj, wykres, infografik, rycin]
+      ru: [визуализац, график, диаграмм, инфографик, рисунк]
+      ua: [візуалізац, графік, діаграм, інфографік, рисунк]
+    price_usd: {min: 50, typical: 150, max: 800, unit: project}
+
+  - id: sci_editing
+    name:
+      en: Scientific editing & proofreading
+      pl: Redakcja i korekta tekstów naukowych
+      ru: Научное редактирование и корректура
+      ua: Наукове редагування та коректура
+    keywords:
+      en: ["scientific editing", "academic editing", proofread, "language editing", "copy edit", copyedit, "manuscript editing", "native english", "english editing", "substantive editing", "reviewer comments", "response to reviewers", rebuttal]
+      pl: [redakcj, korekt, "artykuł naukowy", "tekst naukowy", "odpowiedź recenzent"]
+      ru: [редактирован, корректур, "научная статья", "научной статьи", "ответ рецензент", вычитк]
+      ua: [редагуван, коректур, "наукова стаття", "наукової статті", "відповідь рецензент", вичитк]
+    price_usd: {min: 20, typical: 35, max: 60, unit: 1000_words}
+
+  - id: formatting
+    name:
+      en: Formatting to standards (APA, AMA, Vancouver, journal templates)
+      pl: Formatowanie wg standardów (APA, Vancouver, szablony czasopism)
+      ru: Оформление по стандартам (APA, ГОСТ, Vancouver, шаблоны журналов)
+      ua: Оформлення за стандартами (APA, ДСТУ, Vancouver, шаблони журналів)
+    keywords:
+      en: [formatting, " apa", "apa 7", " ama ", vancouver, harvard, chicago, "reference list", references, citation, zotero, endnote, mendeley, latex, overleaf, template, "word formatting"]
+      pl: [formatowan, przypis, bibliografi, "edycja w word", szablon, apa]
+      ru: [оформлен, гост, "список литературы", библиограф, сноск, шаблон, латех, latex]
+      ua: [оформлен, дсту, "список літератури", бібліограф, виноск, шаблон, latex]
+    price_usd: {min: 1.5, typical: 3, max: 6, unit: page}
+
+  - id: submission_prep
+    name:
+      en: Journal submission preparation
+      pl: Przygotowanie publikacji do czasopisma
+      ru: Подготовка к подаче в журнал
+      ua: Підготовка до подання в журнал
+    keywords:
+      en: ["journal submission", "submit to journal", "cover letter", "author guidelines", scopus, "web of science", "impact factor", "journal selection", "pre-submission", "highlights", "graphical abstract", resubmission]
+      pl: ["publikacja w czasopiśmie", "list przewodni", scopus, "lista czasopism", "punkty ministerialne"]
+      ru: ["подача в журнал", "публикация в журнале", scopus, "вак", "сопроводительное письмо", "web of science", скопус]
+      ua: ["подання в журнал", "публікація в журналі", scopus, "фахове видання", "супровідний лист", скопус]
+    price_usd: {min: 80, typical: 200, max: 600, unit: project}
+
+  - id: consulting
+    name:
+      en: 1:1 statistics consulting
+      pl: Konsultacje statystyczne 1:1
+      ru: Индивидуальные консультации по статистике
+      ua: Індивідуальні консультації зі статистики
+    keywords:
+      en: [consult, tutor, mentor, "explain", "help me understand", "zoom call", "1:1", "one-on-one", coaching]
+      pl: [konsultacj, korepetycj, "wytłumacz", "pomoc w zrozumieniu"]
+      ru: [консультац, репетитор, "объяснить", "помочь разобраться", созвон]
+      ua: [консультац, репетитор, "пояснити", "допомогти розібратися", дзвінок]
+    price_usd: {min: 30, typical: 50, max: 100, unit: hour}
+
+# Признаки неподходящих/рискованных заказов (штраф в скоринге)
+red_flags:
+  - "do my homework"
+  - "take my exam"
+  - "online exam"
+  - "write my essay"
+  - "ghostwrit"
+  - "fake data"
+  - "fabricat"
+  - "plagiar"
+  - "pay after"
+  - "unpaid test"
+  - "free sample"
+  - "telegram me"
+  - "whatsapp me"
+  - "напишите за меня"
+  - "сдать экзамен"
+  - "napisz za mnie"
+  - "praca na zaliczenie"
+  - "здати іспит"
